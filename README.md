@@ -22,9 +22,10 @@ module "vault-aws-creds" {
 }
 
 provider "aws" {
-  access_key     = module.vault-aws-creds.access_key
-  secret_key     = module.vault-aws-creds.secret_key
-  security_token = module.vault-aws-creds.security_token
+  access_key = data.vault_aws_access_credentials.creds.access_key
+  secret_key = data.vault_aws_access_credentials.creds.secret_key
+  token      = data.vault_aws_access_credentials.creds.security_token
+  region     = "us-east-1"
 }
 ```
 
