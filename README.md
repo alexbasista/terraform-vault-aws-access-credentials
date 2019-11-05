@@ -1,12 +1,12 @@
-# terraform-vault-aws-access-credentials-sts
-Terraform module to retrieve AWS access credentials from Vault via the AWS STS endpoint
+# terraform-vault-aws-access-credentials
+Terraform module to retrieve AWS access credentials from Vault via the AWS secrets engine
 
 ## Requirements
 - Terraform >= 0.12
-- Vault instance with AWS secrets engine enabled with role configured with `assumed_role` credential type
+- Vault instance/cluster with AWS secrets engine enabled and configured with Vault role
 
 ## Usage
-There are two ways to consume this module depending on the credential type that was configured on the [Vault AWS role](https://www.vaultproject.io/docs/secrets/aws/index.html). The default usage is STS credentials.
+There are two ways to consume this module depending on the credential type that was configured on the [Vault AWS role](https://www.vaultproject.io/docs/secrets/aws/index.html). The default usage is STS credentials, but IAM credentials are supported as well.
 
 ### STS credentials
 1. Enter the appropriate hostname for the Vault `address` provider arguement
@@ -34,7 +34,7 @@ provider "aws" {
 ### IAM credentials
 1. Enter the appropriate hostname for the Vault `address` provider arguement
 2. Set a `VAULT_TOKEN` environment variable with privileges to read against the Vault aws/creds/$aws_secrets_engine_role endpoint
-3. Specify "creds" for the `credential_type` argument
+3. Specify `creds` for the `credential_type` argument (rather than the default `sts`)
 
 ```hcl
 provider "vault" {
