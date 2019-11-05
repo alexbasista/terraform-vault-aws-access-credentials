@@ -7,7 +7,7 @@ Terraform module to retrieve AWS access credentials from Vault via the AWS STS e
 
 ## Usage
 1. Enter the appropriate hostname for the Vault `address` provider arguement
-2. Set a `VAULT_TOKEN` environment variable with priveleges to write against the Vault AWS Secrets backend
+2. Set a `VAULT_TOKEN` environment variable with priveleges to read against the Vault aws/sts endpoint
 
 ```hcl
 provider "vault" {
