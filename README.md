@@ -18,7 +18,7 @@ provider "vault" {
 }
 
 module "vault-aws-sts" {
-  source = "github.com/alexbasista/terraform-vault-aws-access-credentials-sts"
+  source = "github.com/alexbasista/terraform-vault-aws-access-credentials"
 
   aws_secrets_engine_name = var.aws_secrets_engine_name
   aws_secrets_engine_role = var.aws_secrets_engine_role
@@ -42,7 +42,7 @@ provider "vault" {
 }
 
 module "vault-aws-creds" {
-  source = "github.com/alexbasista/terraform-vault-aws-access-credentials-sts"
+  source = "github.com/alexbasista/terraform-vault-aws-access-credentials"
 
   aws_secrets_engine_name = var.aws_secrets_engine_name
   aws_secrets_engine_role = var.aws_secrets_engine_role
