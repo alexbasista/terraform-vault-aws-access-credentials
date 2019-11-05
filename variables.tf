@@ -7,3 +7,9 @@ variable "aws_secrets_engine_role" {
   type        = string
   description = "Name of Vault role to retrieve creds from"
 }
+
+variable "credential_type" {
+  type        = string
+  description = "(Optional) Type of credentials to retrieve from Vault"
+  default     = "sts"
+}
